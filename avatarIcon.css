@@ -1,0 +1,11 @@
+/* avatarIcon.css */
+
+#avatar-icon-container {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#avatar-icon-container:hover {
+    transform: scale(1.1);
+}

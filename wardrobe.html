@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wardrobe</title>
+    <link rel="stylesheet" href="wardrobe.css">
+    <link rel="stylesheet" href="notificationsmessage.css">
+</head>
+<body>
+    <div class="wardrobe-container">
+        <header>
+            <h1>Your Wardrobe</h1>
+            <div id="coin-display">Coins: <span id="coin-amount">100</span></div>
+            <a href="shop.html" class="shop-link">Back to Shop</a>
+        </header>
+        <div class="wardrobe-content">
+            <div class="items-container">
+                <h2>Your Items</h2>
+                <div id="wardrobe-list" class="item-list">
+                    <!-- Wardrobe items will be dynamically added here by JavaScript -->
+                </div>
+            </div>
+            <div class="preview-container">
+                <div id="avatar-container">
+                    <!-- The body template will be inserted here by body.js -->
+                </div>
+                
+                <div class="skin-tone-options">
+                    <button class="skin-tone-btn" data-skin-tone="default">Default Skin</button>
+                    <button class="skin-tone-btn" data-skin-tone="light">Light Skin</button>
+                    <button class="skin-tone-btn" data-skin-tone="medium">Medium Skin</button>
+                    <button class="skin-tone-btn" data-skin-tone="dark">Dark Skin</button>
+                </div>
+                <div class="avatar-controls">
+                    <button id="apply-avatar-btn">Apply Avatar</button>
+                    <button id="clear-avatar-btn">Clear Avatar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <script src="userManager.js"></script>
+    <script src="coinUtils.js"></script>
+<script src="inventory.js"></script>
+<script src="body.js"></script>
+<script src="skinTone.js"></script>
+<script src="wardrobe.js"></script>
+<script src="shop.js"></script>
+    <script src="notifications.js"></script>
+     <script src="wardrobeItemPositions.js"></script>
+    <script src="itemPositions.js"></script>
+    <script src="wardrobeHighlight.js"></script>
+
+</body>
+</html>
+

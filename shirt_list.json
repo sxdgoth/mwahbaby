@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Scar Eye",
+    "price": 20,
+    "type": "face",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/scareye.svg"
+  },
+  {
+    "id": 2,
+    "name": "Most Valuable Shirt",
+    "price": 20,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/mostvaluableshirt.svg"
+  },
+  {
+    "id": 3,
+    "name": "V-Neck Tee",
+    "price": 22,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/najabloomtop.svg"
+  },
+  {
+    "id": 4,
+    "name": "Dope Hoodie",
+    "price": 25,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-36.svg"
+  },
+  {
+    "id": 5,
+    "name": "Eternal Sunshine Jacket",
+    "price": 28,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-46.svg"
+  },
+  {
+    "id": 6,
+    "name": "SP Jacket Style",
+    "price": 30,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-48.svg"
+  },
+  {
+    "id": 7,
+    "name": "Black Lullaby Creature PJ Top",
+    "price": 32,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-53.svg"
+  },
+  {
+    "id": 8,
+    "name": "Emo Checkered Hoodie",
+    "price": 35,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-5.svg"
+  },
+  {
+    "id": 9,
+    "name": "Elixir Penta Hoodie",
+    "price": 38,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/svgexport-56.svg"
+  },
+  {
+    "id": 10,
+    "name": "Linen Shirt",
+    "price": 40,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/zestyeyes.svg"
+  },
+  {
+    "id": 11,
+    "name": "Graphic Tee",
+    "price": 23,
+    "type": "shirts",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/zestyeyes.svg"
+  },
+  {
+    "id": 12,
+    "name": "Zesty Eyes",
+    "price": 25,
+    "type": "face",
+    "svg": "https://sxdgoth.github.io/mwahbaby/assets/shirts/zestyeyes.svg"
+  }
+]

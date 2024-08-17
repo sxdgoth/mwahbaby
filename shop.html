@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="notificationsmessage.css">
+</head>
+<body>
+    <div class="shop-container">
+        <header>
+            <h1>Avatar Shop</h1>
+            <div id="coin-display">Coins: <span id="coin-amount"></span><span id="coin-change"></span></div>
+            <a href="wardrobe.html" class="inventory-link">Go to Wardrobe</a>
+        </header>
+        <div class="shop-content">
+            <div class="items-container">
+                <div id="category-selector" class="category-selector">
+                    <button class="category-btn" data-category="all">All</button>
+                    <button class="category-btn" data-category="face">Face</button>
+                    <button class="category-btn" data-category="shirts">Shirts</button>
+                    <button class="category-btn" data-category="pants">Pants</button>
+                    <button class="category-btn" data-category="accessories">Accessories</button>
+                </div>
+                <div id="shop-items" class="item-list">
+                    <!-- Shop items will be dynamically added here by JavaScript -->
+                </div>
+            </div>
+            <div class="preview-container">
+                <div id="avatar-container">
+                    <svg id="body-svg" aria-label="user avatar" viewBox="-40.94377899169922 -146.29818725585938 68.82828521728516 163.4471893310547" preserveAspectRatio="xMidYMid meet">
+                        <!-- The body parts will be inserted here by body.js -->
+                    </svg>
+                </div>
+                <div id="shop-controls">
+            <button id="buy-btn">Buy</button>
+            <button id="clear-avatar-btn">Clear Avatar</button>
+        </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="avatarConfig.js"></script>
+<script src="userManager.js"></script>
+<script src="inventory.js"></script>
+<script src="coinUtils.js"></script>
+<script src="body.js"></script>
+<script src="layerManager.js"></script>
+<script src="shopManager.js"></script>
+<script src="shopHandler.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentUser = UserManager.getCurrentUser();
+        if (currentUser) {
+            const userCoins = UserManager.getUserCoins(currentUser);
+            const coinDisplay = document.getElementById('coin-amount');
+            if (coinDisplay) {
+                coinDisplay.textContent = userCoins;
+            }
+        }
+
+        function updateCoinDisplay(oldAmount, newAmount) {
+            console.log('updateCoinDisplay called', oldAmount, newAmount);
+            const coinDisplay = document.getElementById('coin-amount');
+            const coinChange = document.getElementById('coin-change');
+            
+            if (coinDisplay && coinChange) {
+                const currentUser = UserManager.getCurrentUser();
+                const userCoins = newAmount !== undefined ? newAmount : UserManager.getUserCoins(currentUser);
+                
+                if (oldAmount !== undefined && oldAmount !== userCoins) {
+                    const difference = userCoins - oldAmount;
+                    const duration = 1000; // Animation duration in milliseconds
+                    const frames = 60; // Number of frames for the animation
+                    const step = difference / frames;
+                    
+                    let currentStep = 0;
+                    const animateChange = () => {
+                        currentStep++;
+                        const currentDifference = Math.round(step * currentStep);
+                        const currentAmount = oldAmount + currentDifference;
+                        
+                        coinDisplay.textContent = currentAmount;
+                        coinChange.textContent = difference > 0 ? `+${currentDifference}` : currentDifference;
+                        coinChange.style.color = difference > 0 ? 'green' : 'red';
+                        coinChange.style.opacity = '1';
+                        
+                        if (currentStep < frames) {
+                            requestAnimationFrame(animateChange);
+                        } else {
+                            // Final state
+                            coinDisplay.textContent = userCoins;
+                            setTimeout(() => {
+                                coinChange.style.opacity = '0';
+                            }, 500); // Keep the final difference visible for a moment
+                        }
+                    };
+                    
+                    animateChange();
+                } else {
+                    coinDisplay.textContent = userCoins;
+                }
+            } else {
+                console.error('Coin display elements not found');
+            }
+        }
+
+        // Make updateCoinDisplay available globally
+        window.updateCoinDisplay = updateCoinDisplay;
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+name: Update Shirt List
+
+on:
+  push:
+    paths:
+      - 'assets/shirts/**'
+
+jobs:
+  update-shirt-list:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+        
+    - name: Generate shirt list
+      run: python .github/scripts/generate_shirt_list.py
+      
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add shirt_list.json
+        git commit -m "Update shirt list" -a || echo "No changes to commit"
+        git push

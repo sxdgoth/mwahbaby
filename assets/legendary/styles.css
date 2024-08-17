@@ -1,0 +1,118 @@
+/* avatar.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+#avatar-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+#body-svg, #wearable-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#wearable-container {
+    z-index: 2;
+}
+
+#body-svg {
+    z-index: 1;
+}
+
+
+#item-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.shop-item {
+    width: 100px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shop-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.shop-item.selected {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.item-preview {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shop-item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.shop-item-price {
+    color: #4CAF50;
+}
+
+.shop-item-owned {
+    color: #4CAF50;
+    font-weight: bold;
+    display: none;
+}
+
+.shop-item.owned .shop-item-price {
+    display: none;
+}
+
+.shop-item.owned .shop-item-owned {
+    display: block;
+}
+
+#skin-tone-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.skin-tone-btn {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.skin-tone-btn:hover {
+    background-color: #45a049;
+}

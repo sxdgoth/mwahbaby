@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Creator</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+   <div id="avatar-container">
+    <svg id="body-svg" xmlns="http://www.w3.org/2000/svg" viewBox="-40.94377899169922 -146.29818725585938 68.82828521728516 163.4471893310547"></svg>
+    <div id="wearable-container"></div>
+</div>
+    
+    <div id="controls">
+        <div id="skin-tone-buttons">
+            <button class="skin-tone-btn" data-skin-tone="default">Default</button>
+            <button class="skin-tone-btn" data-skin-tone="light">Light</button>
+            <button class="skin-tone-btn" data-skin-tone="medium">Medium</button>
+            <button class="skin-tone-btn" data-skin-tone="dark">Dark</button>
+        </div>
+        <div id="item-buttons"></div>
+    </div>
+</div>
+   <script src="body.js"></script>
+<script src="avatar-config.js"></script>
+<script src="avatar.js"></script>
+<script src="skinTone.js"></script>
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize body parts
+        const avatarBody = new AvatarBody('body-svg');
+        avatarBody.initialize().then(() => {
+            console.log("Avatar body initialized");
+            // Initialize skin tone buttons after body is loaded
+            window.initializeSkinToneButtons();
+        }).catch(error => {
+            console.error("Error initializing avatar body:", error);
+        });
+
+        // Initialize wearable items
+        const avatar = new Avatar('avatar-container');
+        avatar.initialize().then(() => {
+            createItemButtons();
+        }).catch(error => {
+            console.error("Error initializing avatar:", error);
+        });
+    });
+</script>
+</body>
+</html>
